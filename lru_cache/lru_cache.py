@@ -52,7 +52,7 @@ class LRUCache:
     def set(self, key, value):
         current_node = self.dll.head
         
-        if key in self.dict.keys():
+        if key in self.dict:
             self.dict[key] = value
             while current_node is not None:
                 if key in current_node.value:       
