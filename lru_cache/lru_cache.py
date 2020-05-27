@@ -28,11 +28,11 @@ class LRUCache:
     def get(self, key):
         current_node = self.dll.head
         
-        if key in self.dict.keys():
-            while key not in current_node.value.keys() and current_node.next is not None:
+        if key in self.dict:
+            while key not in current_node.value and current_node.next is not None:
                 current_node = current_node.next
                 
-            if key in current_node.value.keys():
+            if key in current_node.value:
                 self.dll.move_to_end(current_node)
                 return current_node.value[key]
         
@@ -55,7 +55,7 @@ class LRUCache:
         if key in self.dict.keys():
             self.dict[key] = value
             while current_node is not None:
-                if key in current_node.value.keys():       
+                if key in current_node.value:       
                     current_node.value[key] = value
                 
                 current_node = current_node.next
